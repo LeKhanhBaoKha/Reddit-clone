@@ -12,7 +12,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
-
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -47,8 +50,5 @@ class User extends Authenticatable
         ];
     }
 
-    public function Comments(): HasMany
-    {
-        return $this->hasmany(Comment::class);
-    }
+
 }

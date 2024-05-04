@@ -1,5 +1,9 @@
 import { makerequest } from "./makeRequest";
 
 export function getPosts() {
-  return makerequest("/posts");
+  return makerequest("api/posts");
+}
+
+export function getPost(id) {
+  return makerequest(`api/posts/${id}`);
 }

@@ -12,16 +12,16 @@ class Comment extends Model
     use HasFactory, SoftDeletes;
     public function User(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, "user_id");
     }
 
     public function Post(): BelongsTo
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class, "post_id");
     }
 
     public function parent()
     {
-        return $this->belongsTo(Comment::class, 'parent_id'); // Specify 'parent_id' as foreign key
+        return $this->belongsTo(Comment::class, 'parent_id');
     }
 }
